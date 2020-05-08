@@ -1,0 +1,48 @@
+<div class="product">
+            <div class="product-image">
+                <!-- v-bind binds a attribute(src) to an expression -->
+                <img v-bind:src="image">
+                <a v-bind:href="link" target="_blank">Click here!</a>
+            </div>
+            <div class="product-info">
+                <!-- expressions are used to display instance's data -->
+                <h1>{{ title }}</h1>
+                <p>{{ sale }}</p>
+                <p>Shipping: {{ shipping }}</p>
+
+                <p v-if="inStock > 10">In Stock</p>
+                <p v-else-if="inStock <=10 && inStock >0">Almost out of stock!</p>
+                <!-- binds a css class depending on if expression results to true/false -->
+                <p v-else v-bind:class="{ outOfStock: !inStock }">Out of Stock</p>
+                <p v-show="inventory">In Stock</p>
+                
+                 <!-- 'detail' is alias to be used to iterate through elements -->
+                <ul>
+                    <li v-for="detail in details">{{ detail }}</li>
+                </ul>
+                
+                <ul>
+                    <li v-for="size in sizes">{{ size }}</li>
+                </ul>
+
+                <!-- using objects with v-for, use a key to keep track of each node -->
+                <div class="color-box"
+                    v-for="(variant,index) in variants" 
+                    v-bind:key="variant.variantID"
+                    v-bind:style="{ backgroundColor : variant.variantColor }"
+                    v-on:mouseover="updateProduct(index)">
+                </div>
+
+                <!-- binding a style class to a button -->
+                <button v-on:click="addToCart" 
+                    v-bind:disabled="!inStock" 
+                    v-bind:class="{ disabledButton : !inStock } ">Add to Cart</button>
+
+                <button v-on:click="removeFromCart">Remove Item</button>
+
+                <div class="cart">
+                    <p>Cart({{ cart }})</p>
+                </div>
+
+            </div>
+        </div> 
