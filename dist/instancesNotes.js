@@ -10,8 +10,8 @@ var app = new Vue({
         details: ["80% cotton", "2% polyester", "gender neutral"],
         sizes: ["XS", "S", "MED", "L", 'XL'],
         variants: [
-            {variantID: 1234, variantColor: 'green', variantImage: '/Users/annguyen/Desktop/vue practice/green-socks.png', variantQuantity: 10},
-            {variantID: 5678, variantColor: 'blue', variantImage: '/Users/annguyen/Desktop/vue practice/blue-socks.png', variantQuantity: 0}
+            {variantID: 1234, variantColor: 'green', variantImage: '/dist/green-socks.png', variantQuantity: 10},
+            {variantID: 5678, variantColor: 'blue', variantImage: '/dist/blue-socks.png', variantQuantity: 0}
         ],
         cart: 0,
         onSale: true

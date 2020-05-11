@@ -1,15 +1,21 @@
-var http = require('http');
-var fs = require('fs');
+// ExpressJS, it's a node framework, so we dont have to use HTTP directly
+const express = require('express');
+// node library for creating paths
+const path = require('path');
+// we create the express app
+const app = express();
 
-const PORT=8080; 
+// we are creating a static directory
+app.use(express.static(path.join(__dirname, 'dist')));
 
-fs.readFile('./index.html', function (err, html) {
+// we serve up the index.html file
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
-    if (err) throw err;    
+const port = process.env.PORT || '8080';
+app.set('port', port);
 
-    http.createServer(function(request, response) {  
-        response.writeHeader(200, {"Content-Type": "text/html"});  
-        response.write(html);  
-        response.end();  
-    }).listen(PORT);
+app.listen(port, () => {
+  console.log('listening to port ' + port);
 });

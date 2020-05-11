@@ -73,8 +73,8 @@ Vue.component('product', {
             details: ["80% cotton", "2% polyester", "gender neutral"],
             sizes: ["XS", "S", "MED", "L", 'XL'],
             variants: [
-                {variantID: 1234, variantColor: 'green', variantImage: '/Users/annguyen/Desktop/vue practice/green-socks.png', variantQuantity: 10},
-                {variantID: 5678, variantColor: 'blue', variantImage: '/Users/annguyen/Desktop/vue practice/blue-socks.png', variantQuantity: 5}
+                {variantID: 1234, variantColor: 'green', variantImage: '/green-socks.png', variantQuantity: 10},
+                {variantID: 5678, variantColor: 'blue', variantImage: '/blue-socks.png', variantQuantity: 5}
             ],
             onSale: true,
             reviews: []
